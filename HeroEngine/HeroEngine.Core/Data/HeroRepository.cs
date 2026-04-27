@@ -3,7 +3,7 @@ using HeroEngine.Web.DTOs;
 using System.Collections;
 using System.Text.Json;
 
-namespace HeroEngine.Data;
+namespace HeroEngine.Core.Data;
 
 public class HeroRepository
 {
