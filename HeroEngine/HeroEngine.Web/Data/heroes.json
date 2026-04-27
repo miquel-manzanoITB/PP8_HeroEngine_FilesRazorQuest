@@ -1,32 +1,40 @@
 [
   {
-    "name": "Aldric",
-    "type": "Warrior",
-    "level": 3,
-    "maxHp": 150,
-    "armor": 45,
-    "abilities": [
+    "Name": "Aldric",
+    "Type": "Warrior",
+    "Level": 3,
+    "MaxHp": 150,
+    "Armor": 45,
+    "Abilities": [
       {
-        "name": "Thunder Smash",
-        "type": "Attack",
-        "rarity": "Legendary",
-        "cost": 40
+        "Name": "Thunder Smash",
+        "Type": "Attack",
+        "Rarity": "Legendary",
+        "Cost": 40
       }
     ]
   },
   {
-    "name": "Lyria",
-    "type": "Mage",
-    "level": 2,
-    "maxHp": 90,
-    "armor": 0,
-    "abilities": [
+    "Name": "Lyria",
+    "Type": "Mage",
+    "Level": 2,
+    "MaxHp": 90,
+    "Armor": 0,
+    "Abilities": [
       {
-        "name": "Arcane Barrier",
-        "type": "Defense",
-        "rarity": "Rare",
-        "cost": 15
+        "Name": "Arcane Barrier",
+        "Type": "Defense",
+        "Rarity": "Rare",
+        "Cost": 15
       }
     ]
+  },
+  {
+    "Name": "Bunni",
+    "Type": "Warrior",
+    "Level": 10,
+    "MaxHp": 280,
+    "Armor": 28,
+    "Abilities": []
   }
 ]
