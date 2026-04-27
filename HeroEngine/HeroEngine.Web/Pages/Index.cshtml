@@ -1,10 +1,73 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>⚔ Kingdom of Bytecroft</h1>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="value">@Model.HeroCount</div>
+        <div class="label">Heroes registered</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">@Model.WarriorCount</div>
+        <div class="label">Warriors</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">@Model.MageCount</div>
+        <div class="label">Mages</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">@Model.RogueCount</div>
+        <div class="label">Rogues</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">@Model.CombatCount</div>
+        <div class="label">Combats logged</div>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <div class="card">
+        <h2>Recent heroes</h2>
+        @if (!Model.RecentHeroes.Any())
+        {
+            <p style="color:#7070a0; font-size:0.9rem;">No heroes yet. <a asp-page="/Heroes/Create" style="color:#7c6af7;">Create one!</a></p>
+        }
+        else
+        {
+            <table>
+                <thead>
+                    <tr><th>Name</th><th>Class</th><th>Level</th><th>HP</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var h in Model.RecentHeroes)
+                    {
+                        <tr>
+                            <td><a asp-page="/Heroes/Detail" asp-route-name="@h.Name" style="color:#c0b0ff; text-decoration:none;">@h.Name</a></td>
+                            <td><span class="badge badge-@h.Type.ToLower()">@h.Type</span></td>
+                            <td>@h.Level</td>
+                            <td>@h.MaxHp</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        <div style="margin-top:1rem;">
+            <a asp-page="/Heroes/Heroes" class="btn btn-secondary">View all heroes</a>
+            <a asp-page="/Heroes/Create" class="btn btn-primary" style="margin-left:8px;">+ New hero</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Quick actions</h2>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:0.5rem;">
+            <a asp-page="/Heroes/Create" class="btn btn-primary">+ Create new hero</a>
+            <a asp-page="/Combat/Combat" class="btn btn-secondary">⚔ Start combat</a>
+            <a asp-page="/Files/Files" class="btn btn-secondary">📁 Manage files</a>
+            <a asp-page="/Stats/Stats" class="btn btn-secondary">📊 View statistics</a>
+        </div>
+    </div>
 </div>

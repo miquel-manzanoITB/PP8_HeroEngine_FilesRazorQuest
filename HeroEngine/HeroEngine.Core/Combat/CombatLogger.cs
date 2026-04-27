@@ -32,16 +32,23 @@ public sealed class CombatLogger
     }
 
     /// <summary>Writes all buffered lines to the log file.</summary>
-    public void Flush()
+    public void Flush(string hero1, string hero2, string result)
     {
         try
         {
-            File.WriteAllLines(_path, _buffer);
-            Console.WriteLine($"\n  📋  Battle log saved to: {Path.GetFullPath(_path)}");
+            using var sw = new StreamWriter(_path, append: true);
+            sw.WriteLine($"");
+            sw.WriteLine($"=== COMBAT LOG — {DateTime.Now:yyyy-MM-dd HH:mm:ss} ===");
+            sw.WriteLine($"Participants: {hero1} vs {hero2}");
+            sw.WriteLine($"Result: {result}");
+            sw.WriteLine(new string('-', 50));
+            foreach (var line in _buffer)
+                sw.WriteLine(line);
+            sw.WriteLine(new string('=', 50));
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"  ⚠  Could not write log file: {ex.Message}");
+            Console.Error.WriteLine($"Log write error: {ex.Message}");
         }
     }
 }
