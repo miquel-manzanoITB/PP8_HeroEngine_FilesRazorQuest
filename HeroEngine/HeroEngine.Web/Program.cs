@@ -1,7 +1,22 @@
+using HeroEngine.Core.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+
+// Paths absolutos para los ficheros de datos
+string dataDir = Path.Combine(builder.Environment.ContentRootPath, "Data");
+Directory.CreateDirectory(dataDir);
+
+builder.Services.AddSingleton(new HeroRepository(
+    Path.Combine(dataDir, "heroes.json")));
+builder.Services.AddSingleton(new CsvStatsWriter(
+    Path.Combine(dataDir, "combat_stats.csv")));
+builder.Services.AddSingleton(
+    GameConfig.Load(Path.Combine(dataDir, "game_config.xml")));
+
 
 var app = builder.Build();
 
@@ -14,6 +29,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
 
 app.UseRouting();
 
