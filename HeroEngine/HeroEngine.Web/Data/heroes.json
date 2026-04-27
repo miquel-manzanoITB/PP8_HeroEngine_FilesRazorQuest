@@ -1,20 +1,5 @@
 [
   {
-    "Name": "Aldric",
-    "Type": "Warrior",
-    "Level": 3,
-    "MaxHp": 150,
-    "Armor": 45,
-    "Abilities": [
-      {
-        "Name": "Thunder Smash",
-        "Type": "Attack",
-        "Rarity": "Legendary",
-        "Cost": 40
-      }
-    ]
-  },
-  {
     "Name": "Lyria",
     "Type": "Mage",
     "Level": 2,
@@ -35,6 +20,14 @@
     "Level": 10,
     "MaxHp": 280,
     "Armor": 28,
+    "Abilities": []
+  },
+  {
+    "Name": "Cat",
+    "Type": "Rogue",
+    "Level": 4,
+    "MaxHp": 160,
+    "Armor": 0,
     "Abilities": []
   }
 ]
