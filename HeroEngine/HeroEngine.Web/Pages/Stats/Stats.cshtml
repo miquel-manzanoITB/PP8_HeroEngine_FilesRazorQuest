@@ -98,9 +98,9 @@
         <label style="margin:0; white-space:nowrap; font-size:0.85rem;">Filter by result:</label>
         <select name="filter" onchange="this.form.submit()"
                 style="width:auto; margin:0; padding:6px 10px;">
-            <option value="" @(Model.Filter == "" ? "selected" : "")>All</option>
-            <option value="Victory" @(Model.Filter == "Victory" ? "selected" : "")>Victory</option>
-            <option value="Defeat"  @(Model.Filter == "Defeat"  ? "selected" : "")>Defeat</option>
+            <option value="" selected="@(Model.Filter == "" ? "selected" : null)">All</option>
+            <option value="Victory" selected="@(Model.Filter == "Victory" ? "selected" : null)">Victory</option>
+            <option value="Defeat"  selected="@(Model.Filter == "Defeat"  ? "selected" : null)">Defeat</option>
         </select>
     </form>
 

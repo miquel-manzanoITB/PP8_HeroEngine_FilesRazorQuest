@@ -40,6 +40,9 @@ public class CombatPageModel : PageModel
 
     public void OnGet()
     {
+        if (System.IO.File.Exists(_logPath))
+            CombatLog = System.IO.File.ReadAllText(_logPath);
+
         AvailableHeroes = _repo.LoadAll();
         LoadLog();
     }

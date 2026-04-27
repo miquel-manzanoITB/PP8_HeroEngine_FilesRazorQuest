@@ -38,6 +38,7 @@ public class StatsPageModel : PageModel
             .ToDictionary(g => g.Key, g => g.Count());
 
         // Top 3 by level
+        // Cast to the expected element type because HeroAnalytics methods return non-generic IEnumerable
         TopHeroes = analytics.GetTopHeroesByLevel(3).ToList();
 
         // Ability type counts
