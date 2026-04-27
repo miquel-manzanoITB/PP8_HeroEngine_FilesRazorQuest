@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Aldric",
+    "type": "Warrior",
+    "level": 3,
+    "maxHp": 150,
+    "armor": 45,
+    "abilities": [
+      {
+        "name": "Thunder Smash",
+        "type": "Attack",
+        "rarity": "Legendary",
+        "cost": 40
+      }
+    ]
+  },
+  {
+    "name": "Lyria",
+    "type": "Mage",
+    "level": 2,
+    "maxHp": 90,
+    "armor": 0,
+    "abilities": [
+      {
+        "name": "Arcane Barrier",
+        "type": "Defense",
+        "rarity": "Rare",
+        "cost": 15
+      }
+    ]
+  }
+]
